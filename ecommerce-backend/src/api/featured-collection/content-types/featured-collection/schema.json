@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_collections",
+  "info": {
+    "singularName": "featured-collection",
+    "pluralName": "featured-collections",
+    "displayName": "FeaturedCollection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "hasMore": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

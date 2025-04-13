@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Everyday-Elegance
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./ecommerce-backend
+    ports:
+      - "1337:1337"
+    volumes:
+      - strapi-data:/app/.tmp
+    env_file:
+      - ./ecommerce-backend/.env
+    environment:
+      NODE_ENV: development
+    networks:
+      - app-network
+
+volumes:
+  strapi-data:
+
+
+networks:
+  app-network:
+    driver: bridge
