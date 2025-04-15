@@ -1,18 +1,19 @@
 FROM node:18-alpine
 
+RUN apk add --no-cache \
+    build-base \
+    python3 \
+    make \
+    g++ \
+    vips-dev \
+    && npm install -g npm@10.8.2
+
 WORKDIR /app
 
-RUN apk add --no-cache python3 make g++ sqlite
+COPY package*.json ./
 
-COPY .env .env
-COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
 
-RUN npm run build
-
-EXPOSE 1337
-
-# Start the server
-CMD ["npm", "run", "develop"]
+CMD ["npm", "start"]
