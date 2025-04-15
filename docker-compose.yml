@@ -17,7 +17,7 @@ services:
     ports:
       - "1337:1337"
     volumes:
-      - strapi-data:/app/.tmp
+      - strapi-data:/app/public/uploads
     env_file:
       - ./ecommerce-backend/.env
     environment:
