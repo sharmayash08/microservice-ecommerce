@@ -30,7 +30,7 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="flex justify-center items-center">
             <img
-              src={`http://localhost:1337${slide.image.url}`}
+              src={`http://localhost:1337/${slide.image.url}`}
               alt={slide.title || `Slide ${index}`}
               className="w-[93.5%] max-h-[450px] object-cover rounded-lg shadow-lg"
             />

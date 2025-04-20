@@ -16,12 +16,12 @@ export default function BestSeller() {
       try {
         const response = await fetch('http://localhost:1337/api/products?populate=*&filters[isBestseller][$eq]=true');
         const data = await response.json();
-        
+
         const productsData = data.data.map((item) => ({
           id: item.documentId,
           name: item.name,
           price: item.price,
-          image: item.images[0]?.url 
+          image: item.images[0]?.url
             ? item.images[0].url
             : '/placeholder.svg', // fallback image
         }));
@@ -57,7 +57,7 @@ export default function BestSeller() {
     const ref = scrollRef.current;
     if (ref) {
       ref.addEventListener('scroll', handleScroll);
-      
+
       // Check the dimensions once after products have loaded
       handleScroll();
     }
@@ -80,7 +80,7 @@ export default function BestSeller() {
               name={product.name}
               price={`₹${product.price}`}
               image={product.image}
-              onClick={() => handleProductClick(product.id)} 
+              onClick={() => handleProductClick(product.id)}
             />
           ))}
         </div>

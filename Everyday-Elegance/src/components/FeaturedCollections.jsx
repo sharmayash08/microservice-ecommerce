@@ -64,8 +64,8 @@ export default function FeaturedCollections() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {collections.map((collection, index) => {
-          {/* const { attributes } = collection; */}
-          {/* console.log('Collection:', JSON.stringify(collection, null, 2)); */}
+          {/* const { attributes } = collection; */ }
+          {/* console.log('Collection:', JSON.stringify(collection, null, 2)); */ }
 
           const imageUrl = collection?.image?.[0]?.url
             ? `http://localhost:1337${collection.image[0].url}`
@@ -74,17 +74,15 @@ export default function FeaturedCollections() {
           return (
             <div
               key={collection.id}
-              className={`relative overflow-hidden ${
-                index === 1 ? 'md:row-span-2 h-full' : 'h-60 md:h-64'
-              }`}
+              className={`relative overflow-hidden ${index === 1 ? 'md:row-span-2 h-full' : 'h-60 md:h-64'
+                }`}
             >
               {imageUrl ? (
                 <img
                   src={imageUrl}
                   alt={collection?.name || 'Collection'}
-                  className={`w-full object-cover rounded-md ${
-                    index === 1 ? 'h-full' : 'h-full md:h-64'
-                  }`}
+                  className={`w-full object-cover rounded-md ${index === 1 ? 'h-full' : 'h-full md:h-64'
+                    }`}
                 />
               ) : (
                 <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-md">

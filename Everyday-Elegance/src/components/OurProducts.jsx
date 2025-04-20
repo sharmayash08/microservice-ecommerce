@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard'; // Import your ProductCard component
 import Loader from './Loader';
 
-const categories = ['Top', 'Bottom', 'Dress', 'Jewellery', 'Cosmetics' , 'Hair Flair'];
+const categories = ['Top', 'Bottom', 'Dress', 'Jewellery', 'Cosmetics', 'Hair Flair'];
 
 export default function OurProducts() {
   const [activeCategory, setActiveCategory] = useState('Top');
@@ -50,23 +50,22 @@ export default function OurProducts() {
   return (
     <section id='products-section' className="container mx-auto px-12 py-8">
       <h2 className="text-3xl font-bold text-center mb-6">Our Products</h2>
-      
+
       <div className="flex justify-center space-x-4 mb-6 overflow-x-auto">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${
-              activeCategory === category
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${activeCategory === category
                 ? 'bg-gray-200 font-semibold'
                 : 'text-gray-600 hover:bg-gray-100'
-            }`}
+              }`}
             onClick={() => setActiveCategory(category)}
           >
             {category}
           </button>
         ))}
       </div>
-      
+
       {loading ? (
         <Loader className="align-middle" />
       ) : (
@@ -82,7 +81,7 @@ export default function OurProducts() {
           ))}
         </div>
       )}
-      
+
       <div className="text-center">
         <button className="inline-flex items-center px-4 py-2 bg-black text-white rounded hover:bg-gray-800" onClick={handleSeeMore}>
           SEE MORE

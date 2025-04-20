@@ -18,36 +18,17 @@ services:
       - "1337:1337"
     volumes:
       - strapi-uploads:/app/public/uploads
+      - strapi-db:/app/.tmp
     env_file:
       - ./ecommerce-backend/.env
     environment:
       NODE_ENV: development
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_NAME: strapi
-      DATABASE_USERNAME: strapi
-      DATABASE_PASSWORD: strapi123
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-  db:
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_USER: strapi
-      POSTGRES_PASSWORD: strapi123
-      POSTGRES_DB: strapi
-    volumes:
-      - db-data:/var/lib/postgresql/data
     networks:
       - app-network
 
 volumes:
   strapi-uploads:
-  db-data:
+  strapi-db:
 
 
 networks:
