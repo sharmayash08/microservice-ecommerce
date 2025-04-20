@@ -27,9 +27,13 @@ services:
       - app-network
 
 volumes:
-  strapi-uploads:
   strapi-db:
+    external: true
+    name: microservice-ecommerce_strapi-db
 
+  strapi-uploads:
+    external: true
+    name: microservice-ecommerce_strapi-uploads
 
 networks:
   app-network:
